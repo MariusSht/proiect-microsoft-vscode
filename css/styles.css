@@ -37,9 +37,14 @@ img {
 }
 
 .page-header {
-    padding: 3.5rem 1.5rem 2.5rem;
+    padding: 2rem 1.5rem 2.5rem;
     text-align: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(2,6,23,0.92);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(148,163,184,0.08);
 }
 
 .page-header::after {
@@ -62,6 +67,9 @@ img {
     flex-wrap: wrap;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .logo {
@@ -86,12 +94,15 @@ img {
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 0.05em;
-    transition: color 180ms ease, transform 180ms ease;
+    padding: 0.85rem 1rem;
+    border-radius: 999px;
+    transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
 .nav-list a:hover,
 .nav-list a.active {
     color: #ffffff;
+    background-color: rgba(255,255,255,0.08);
     transform: translateY(-1px);
 }
 
@@ -341,6 +352,11 @@ footer {
     .nav-list {
         justify-content: center;
         gap: 0.9rem;
+    }
+
+    .nav-list a {
+        width: 100%;
+        text-align: center;
     }
 }
 
