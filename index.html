@@ -1,13 +1,240 @@
-<html lang='en'>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cool Cars Showcase</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            color: #f8fafc;
+            background: #020617;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: radial-gradient(circle at top, #1f2937 0%, #020617 55%, #03060f 100%);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        header {
+            padding: 4rem 1.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            width: 70vw;
+            height: 260px;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(59,130,246,0.22), transparent 55%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            letter-spacing: 0.28em;
+            font-size: 0.85rem;
+            color: #93c5fd;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(96,165,250,0.25);
+        }
+
+        p.lead {
+            max-width: 720px;
+            margin: 1rem auto 0;
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .grid {
+            display: grid;
+            gap: 1.6rem;
+            padding: 1.5rem;
+            max-width: 1180px;
+            margin: 0 auto 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1.75rem;
+            background: rgba(15,23,42,0.92);
+            border: 1px solid rgba(148,163,184,0.12);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.22);
+            transition: transform 240ms ease, box-shadow 240ms ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 32px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(59,130,246,0.1) 0%, transparent 48%, rgba(236,72,153,0.08) 100%);
+            pointer-events: none;
+        }
+
+        .card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            position: relative;
+            padding: 1.5rem;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(59,130,246,0.16);
+            color: #93c5fd;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.65rem;
+            line-height: 1.1;
+        }
+
+        .card p {
+            margin: 0 0 1.4rem;
+            color: #cbd5e1;
+            line-height: 1.75;
+        }
+
+        .stats {
+            display: grid;
+            gap: 0.9rem;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .stat {
+            padding: 1rem;
+            border-radius: 1rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(148,163,184,0.08);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 0.35rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem 2.5rem;
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            header {
+                padding-top: 3rem;
+            }
+
+            .card img {
+                height: 200px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body> 
-<h1 style="color: blue;"> Welcome to my website</h1>
-<p>Hello world!</p>
-<p>This is a simple HTML document. </p>
+<body>
+    <header>
+        <div class="eyebrow">Dream machines on display</div>
+        <h1>Cool Cars Showcase</h1>
+        <p class="lead">Discover three iconic performance cars with bold design, cutting-edge power, and a modern look that gives your page a premium feel.</p>
+    </header>
+
+    <section class="grid">
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80" alt="Red supercar">
+            <div class="card-content">
+                <span class="badge">Hypercar</span>
+                <h2>Ferrari SF90 Stradale</h2>
+                <p>Hybrid V8 power, dramatic Italian styling, and a blistering 0–100 km/h time that proves this car is built for both speed and elegance.</p>
+                <div class="stats">
+                    <div class="stat"><strong>1000+ HP</strong><span>Peak output</span></div>
+                    <div class="stat"><strong>340 km/h</strong><span>Top speed</span></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=1200&q=80" alt="Blue luxury sports car">
+            <div class="card-content">
+                <span class="badge">Super GT</span>
+                <h2>Lamborghini Aventador</h2>
+                <p>A savage V12 powerhouse with iconic scissor doors and a design language that turns every street into a runway.</p>
+                <div class="stats">
+                    <div class="stat"><strong>770 HP</strong><span>V12 roar</span></div>
+                    <div class="stat"><strong>350 km/h</strong><span>Top speed</span></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1200&q=80" alt="Electric sports car">
+            <div class="card-content">
+                <span class="badge">Electric</span>
+                <h2>Tesla Roadster</h2>
+                <p>Silently extreme, this all-electric rocket delivers mind-bending acceleration and futuristic styling in a refined, minimal package.</p>
+                <div class="stats">
+                    <div class="stat"><strong>2000+ Nm</strong><span>Instant torque</span></div>
+                    <div class="stat"><strong>1.9 s</strong><span>0–100 km/h</span></div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <footer>Powered by speed, style, and a passion for the coolest cars on the planet.</footer>
 </body>
 </html>
  
