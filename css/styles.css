@@ -123,6 +123,10 @@ h1 {
     text-shadow: 0 0 20px rgba(96,165,250,0.25);
 }
 
+p {
+    text-align: center;
+}
+
 p.lead,
 p.subtitle {
     max-width: 720px;
