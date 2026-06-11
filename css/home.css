@@ -17,11 +17,21 @@ body {
     overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(59,130,246,0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(236,72,153,0.14), transparent 26%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .logo {
     position: fixed;
     top: 1.5rem;
     left: 1.5rem;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: 0.15em;
     color: #60a5fa;
@@ -31,7 +41,7 @@ body {
 }
 
 header {
-    padding: 4rem 1.5rem 2.5rem;
+    padding: 5rem 1.5rem 2.5rem;
     text-align: center;
     position: relative;
 }
@@ -72,6 +82,35 @@ p.lead {
     color: #cbd5e1;
     font-size: 1.05rem;
     line-height: 1.8;
+}
+
+nav {
+    position: relative;
+    margin-top: 1rem;
+}
+
+.nav-list {
+    display: inline-flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0 auto 1.75rem;
+    list-style: none;
+}
+
+.nav-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: color 180ms ease, transform 180ms ease;
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 .grid {
@@ -194,5 +233,9 @@ footer {
 
     .stats {
         grid-template-columns: 1fr;
+    }
+
+    .nav-list {
+        gap: 0.8rem;
     }
 }
